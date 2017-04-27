@@ -12,7 +12,7 @@ graphTrans.view <- function(ns){
   )
 }
 
-graphTrans.itemMenu <- menuSubItem(text = "Matrices de transitions", 
+graphTrans.itemMenu <- menuSubItem(text = "Matrices de transitions",
                     href= graph.ROUTER, newtab = FALSE,
                     icon = shiny::icon("codepen"))
 

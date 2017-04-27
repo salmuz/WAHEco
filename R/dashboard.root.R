@@ -5,12 +5,12 @@ dashboard.sidebar <- sidebarMenu(
   menuItem("Dashboard", icon = icon("dashboard"),
            graphTrans.itemMenu,
            survival.itemMenu,
-           menuSubItem("Coûts", 
+           menuSubItem("Coûts",
                        tabName = "ptcost",
                        icon = shiny::icon("bar-chart"))
   ),
   menuItem("Administration", icon = icon("info"))
-           
+
 )
 
 dashboard.routers <- list()
