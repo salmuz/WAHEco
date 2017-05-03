@@ -10,9 +10,7 @@ library(shiny.router)
 source("R/utils.R")
 source("R/app.root.R")
 
-source("data/draft_med_eco.R")
+load("R/2state_mod.RData")
 shinyApp(appRoot$ui(), appRoot$server())
-
-
 
 

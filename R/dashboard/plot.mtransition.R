@@ -2,7 +2,7 @@ GraphComponent <- R6Class(
   classname = "GraphComponent",
   inherit = AppComponent,
   public = list(
-    initialize = function(title = "Matrice de transitions", path = "/other", nsid = "graph-trans"){
+    initialize = function(title = "Matrices de transitions", path = "/plot-graph", nsid = "graph-trans"){
       super$initialize(title, path, nsid)
     },
     view = function(){
@@ -18,10 +18,10 @@ GraphComponent <- R6Class(
     server = function () { #  at evaluate 
       function(input, output, session, ...) {
         output$plot2 <- renderPlot({
-          print(plot(mat_chvp))
+          print(plot(matrix_strategy_list[[1]]))
         })
         output$plot3 <- renderPlot({
-          print(plot(mat_rchvp))
+          print(plot(matrix_strategy_list[[2]]))
         })
       }
     },

@@ -1,12 +1,13 @@
 #' Adding the components customized 
 source("R/dashboard/plot.mtransition.R")
+source("R/dashboard/plot.evolution-cohort.R")
 
 DashboardModule = R6Class(
   classname = "Dashboard", 
   inherit = AppModule,
   public = list(
     initialize = function(){
-      private$routes[["/"]] <- private$viewFactory$createContent(title = "Matrice de salmuz")
+      private$routes[["/"]] <- private$viewFactory$createContent(title = "Capionis Web Application")
     },
     sidebar = function(){
       menuItem("Dashboard", icon = shiny::icon("dashboard"), private$items)
@@ -27,6 +28,9 @@ DashboardModule = R6Class(
   )
 )
 
-graph <- GraphComponent$new()
+pl.graph <- GraphComponent$new()
+pl.evolution <- EvolutionCohortComponent$new()
+
 dashboard <- DashboardModule$new()
-dashboard$addComponent(graph)
+dashboard$addComponent(pl.graph)
+dashboard$addComponent(pl.evolution)
