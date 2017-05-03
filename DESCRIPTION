@@ -1,0 +1,24 @@
+Package: wemeco
+Title: Custom Web Application for Medico-Economics Decision Making
+Version: 0.1
+Authors@R: person("Yonatan", "Carranza Alarcon", email = "salmuz@gmail.com",
+                  role = c("aut", "cre"))
+Description: This package has a general custom architecture web application made in Shiny,
+        it has some web modules for medico-economics decision making and anyone can create
+        news customized modules or component, and add them to the web application container.
+Depends: R (>= 3.2.0)
+License: GPL (>= 3)
+LazyData: true
+VignetteBuilder: knitr
+RoxygenNote: 6.0.1
+Suggests:
+    R6,
+    shiny,
+    shinydashboard, 
+    heemod, 
+    shiny.router
+Imports:
+    heemod (>= 0.9)
+URL: https://github.com/salmuz/WeMEco
+BugReports: https://github.com/salmuz/WeMEco/issues
+Roxygen: list(markdown = TRUE)

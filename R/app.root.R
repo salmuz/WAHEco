@@ -1,5 +1,5 @@
 #' Adding the structure base code for web application architecture  
-source("R/pages.root.R")
+source("R/structure.root.R")
 
 #' Adding the modules customized (manually for the user)
 #' @description  the user should add the customized modules

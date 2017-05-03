@@ -9,19 +9,19 @@ GraphComponent <- R6Class(
       tagList(
         fluidRow(
           box(title = "Default traitement", status = "primary", solidHeader = TRUE,
-              plotOutput(self$genNS("plot2"))),
+              plotOutput(self$genNS("default"))),
           box(title = "Nouveau traitement", status = "primary", solidHeader = TRUE,
-              plotOutput(self$genNS("plot3")))
+              plotOutput(self$genNS("new")))
         )
       )
     },
     server = function () { #  at evaluate 
       function(input, output, session, ...) {
-        output$plot2 <- renderPlot({
-          print(plot(matrix_strategy_list[[1]]))
+        output$default <- renderPlot({
+          plot(matrix_strategy_list[[1]])
         })
-        output$plot3 <- renderPlot({
-          print(plot(matrix_strategy_list[[2]]))
+        output$new <- renderPlot({
+          plot(matrix_strategy_list[[2]])
         })
       }
     },

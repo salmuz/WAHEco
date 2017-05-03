@@ -10,7 +10,6 @@ library(shiny.router)
 source("R/utils.R")
 source("R/app.root.R")
 
-load("R/2state_mod.RData")
+load("R/2state_mod.RData", envir = .GlobalEnv)
+
 shinyApp(appRoot$ui(), appRoot$server())
-
-

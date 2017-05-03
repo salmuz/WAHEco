@@ -1,2 +1,2 @@
 # WeMEco
-Application Web for Medico-Economics Decision Making
+Custom Web Application for Medico-Economics Decision Making
