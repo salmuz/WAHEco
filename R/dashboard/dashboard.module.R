@@ -1,6 +1,8 @@
 #' Adding the components customized 
 source("R/dashboard/plot.mtransition.R")
 source("R/dashboard/plot.evolution-cohort.R")
+source("R/dashboard/plot.psa-model.R")
+source("R/dashboard/plot.dsa-model.R")
 
 DashboardModule = R6Class(
   classname = "Dashboard", 
@@ -30,7 +32,11 @@ DashboardModule = R6Class(
 
 pl.graph <- GraphComponent$new()
 pl.evolution <- EvolutionCohortComponent$new()
+pl.psa <- PSAComponent$new()
+pl.dsa <- DSAComponent$new()
 
 dashboard <- DashboardModule$new()
 dashboard$addComponent(pl.graph)
 dashboard$addComponent(pl.evolution)
+dashboard$addComponent(pl.psa)
+dashboard$addComponent(pl.dsa)

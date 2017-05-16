@@ -15,7 +15,7 @@ GraphComponent <- R6Class(
         )
       )
     },
-    server = function () { #  at evaluate 
+    server = function () {
       function(input, output, session, ...) {
         output$default <- renderPlot({
           plot(matrix_strategy_list[[1]])
