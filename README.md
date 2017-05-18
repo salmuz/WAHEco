@@ -7,7 +7,7 @@ You can use this library to model study case in medico-economics decision making
 This package has a general custom architecture web application using **shiny, shinydashboard, shiny.route and heemod** libraries, it has some web modules for medico-economics decision making and anyone can create news customized modules or component for later they are added to the web application container **AppRoot**.
 
 ### Dependencies
-It's neccesary to install the following libraries:
+It's neccesary to install the following libraries to execute the demo version
 
   * **shinydashboard** 
     * Web site: https://github.com/rstudio/shinydashboard
@@ -21,6 +21,8 @@ It's neccesary to install the following libraries:
     * Web site: https://github.com/pierucci/heemod
     * Version used for this version 
       * ``` devtools::install_github("salmuz/heemod@capionis_features") ```
+  * **shinyAce**
+    * Command: ``` install.packages("shinyAce") ```
   * **WeMEco**
     * Command: ``` devtools::install_github("salmuz/WeMEco") ```
 
