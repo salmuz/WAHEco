@@ -17,12 +17,14 @@ It's neccesary to install the following libraries to execute the demo version
   * **shiny.router** 
     * Web site: https://github.com/Appsilon/shiny.router
     * Command: ``` devtools::install_github("Appsilon/shiny.router") ```
+  * **shinyAce**
+    * Command: ``` install.packages("shinyAce") ```
+  * **diagram**
+    * Command: ``` install.packages("diagram") ```
   * **heemod** 
     * Web site: https://github.com/pierucci/heemod
     * Version used for this version 
       * ``` devtools::install_github("salmuz/heemod@capionis_features") ```
-  * **shinyAce**
-    * Command: ``` install.packages("shinyAce") ```
   * **WeMEco**
     * Command: ``` devtools::install_github("salmuz/WeMEco") ```
 
