@@ -2,7 +2,8 @@ EvolutionCohortComponent <- R6Class(
   classname = "EvolutionCohortComponent",
   inherit = AppComponent,
   public = list(
-    initialize = function(title = "Evolution des cohortes dans le temps", path = "/plot-evolution", nsid = "evo-corhot"){
+    initialize = function(title = "Evolution des cohortes dans le temps", 
+                          path = "/plot-evolution", nsid = "evo-corhot"){
       super$initialize(title, path, nsid)
     },
     view = function(){
@@ -48,8 +49,8 @@ EvolutionCohortComponent <- R6Class(
           selected <- input$byType
           choices <- list("all"="all")
           if(!is.null(selected)){
-            if (selected == "by_strategy") names = as.list(heemod::get_strategy_names(fit.me))
-            else names = as.list(heemod::get_state_names(fit.me))
+            if (selected == "by_strategy") names = as.list(heemod::get_strategy_names(fitting))
+            else names = as.list(heemod::get_state_names(fitting))
             updateSelectInput(session, selected, choices = c(choices, names))
           }
         })
@@ -66,7 +67,7 @@ EvolutionCohortComponent <- R6Class(
         
         output$plt.evolution <- renderPlot({
           params <- options()
-          default <- list(x = fit.me, type = "count")
+          default <- list(x = fitting, type = "count")
           if(!is.null(params)){
             res <- do.call("plot", append(default, params))
             print(res)

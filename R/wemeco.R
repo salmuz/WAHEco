@@ -1,15 +1,22 @@
-rm(list = ls())
-
-library(R6)
-library(shinydashboard)
-library(shiny)
-library(heemod)
-library(shiny.router)
-
-# own libraries 
-source("R/utils.R")
-source("R/app.root.R")
-
-load("R/2state_mod.RData", envir = .GlobalEnv)
-
-shinyApp(appRoot$ui(), appRoot$server())
+#' WeMEco: Web Application for Medico-Economics Decision Making 
+#' 
+#' `WeMEco` is an R toolset for creating a general custom 
+#' web application. It has a demo web modules for medico-economics
+#' decision making, and also, anyone can create new customized modules 
+#' or components for later they are added to the web application 
+#' container AppRoot.
+#' 
+#' @docType package
+#' @name WeMeco
+#' 
+#' @importFrom R6 R6Class
+#' @importFrom shiny.router router_ui
+#' @importFrom shiny.router make_router
+#' @importFrom shiny.router route
+#' 
+#' @importFrom shinydashboard dashboardPage
+#' @importFrom shinydashboard dashboardHeader
+#' @importFrom shinydashboard sidebarMenu
+#' @importFrom shinydashboard dashboardBody
+#' 
+NULL

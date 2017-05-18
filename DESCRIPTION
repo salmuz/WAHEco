@@ -1,4 +1,4 @@
-Package: wemeco
+Package: WeMeco
 Title: Custom Web Application for Medico-Economics Decision Making
 Version: 0.1
 Authors@R: person("Yonatan", "Carranza Alarcon", email = "salmuz@gmail.com",

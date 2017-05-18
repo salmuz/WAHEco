@@ -40,7 +40,7 @@ DSAComponent <- R6Class(
         output$rbStrategy <- renderUI({
           ns <- session$ns
           choices <- list("All"="all")
-          names <- as.list(heemod::get_strategy_names(fit.me))
+          names <- as.list(heemod::get_strategy_names(fitting))
           radioButtons(inputId = ns("by_strategy"), label = "Des Strategies", 
                        choices = c(choices, names), inline=TRUE)
         })
@@ -53,7 +53,7 @@ DSAComponent <- R6Class(
         
         output$plt.cost <- renderPlot({
           params <- options()
-          default <- list(x = res_dsa, result = "cost")
+          default <- list(x = fitting.dsa, result = "cost")
           if(!is.null(params)) res <- do.call("plot", append(default, params))
           else res <- do.call("plot", default)
           print(res)

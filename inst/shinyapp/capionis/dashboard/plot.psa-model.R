@@ -35,16 +35,16 @@ PSAComponent <- R6Class(
     server = function () {
       function(input, output, session, ...) {
         output$plt.ce <- renderPlot({
-          plot(res_psa, type="ce")
+          plot(fitting.psa, type="ce")
         })
         output$plt.ac <- renderPlot({
-          plot(res_psa, type="ac")
+          plot(fitting.psa, type="ac")
         })
         output$plt.evpi <- renderPlot({
-          plot(res_psa, type="evpi")
+          plot(fitting.psa, type="evpi")
         })
         output$plt.cov <- renderPlot({
-          plot(res_psa, type="cov")
+          plot(fitting.psa, type="cov")
         })
       }
     },

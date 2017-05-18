@@ -1,24 +1,18 @@
-rm(list = ls())
-
 mat_base <- define_transition(
   state_names = c("life", "death"),
   C,   p_death_reference,
   0,   1
 )
-# avec le risque relative ?
+
 mat_new <- define_transition(
   state_names = c("life", "death"),
   C,   p_death_new,
   0,   1
 )
 
-
 state_life <- define_state(
-  cost_total = dispatch_strategy(
-    base = 0,
-    new = cost_strat_new / (1-p_death_new) # hit ??? so bad, il n'y a pas de coût constant
-  ),
-  qaly = discount(1, ratio_update, T)
+  cost_total = 0,
+  qaly = discount(1, r_discount, by_period = 12)
 )
 
 state_death <- define_state(
@@ -29,7 +23,10 @@ state_death <- define_state(
 strat_base <- define_strategy(
   transition = mat_base,
   life = state_life,
-  death = state_death
+  death = state_death,
+  starting_values = define_starting_values(
+    cost_total = cost_strat_new
+  )	
 )
 
 strat_new <- define_strategy(
@@ -43,16 +40,14 @@ par_mod <- define_parameters(
   age_cycle = markov_cycle + age_base
 )
 
-taux_mortalite <- read.csv("../Validation/Capionis_Medico_Economic/taux_mortalite.csv", header = T, sep = ';',
-                           colClasses = c("numeric", "numeric"))
-taux_mortalite$prob_death <- (1 - exp(-taux_mortalite$Taux_mortalite_annuelle))
+mortality_rate$probability <- (1 - exp(-mortality_rate$mortality_rate))
 
 par_mod <- modify(
   par_mod,
   p_death_reference = look_up(
-    data = taux_mortalite,
-    age = age_cycle - 1, # Prob de mortalité pour l'individus du cycle passé.
-    value = "prob_death"
+    data = mortality_rate,
+    age = trunc(age_cycle), 
+    value = "probability"
   )
 )
 
@@ -64,11 +59,11 @@ par_mod <- modify(
 
 par_mod <- modify(
   par_mod,
-  cost_strat_new = ifelse(model_time == 1, 1, 0), # hit for simulating cost constant 1 * 1000
-  ratio_update = .04
+  cost_strat_new = 1, 
+  r_discount = .04
 )
 
-fit.ec.mod <- run_model(
+fitting <- run_model(
   parameters = par_mod,
 
   base = strat_base,
@@ -77,13 +72,8 @@ fit.ec.mod <- run_model(
   cycles = 10,
   cost = cost_total,
   effect = qaly,
-  
-  init_cost = c(
-    life = 1000,
-    death = 1000
-  ),
-  
-  method = "beginning",
+
+  method = "life-table",
   init = c(
     life = 1000,
     death = 0

@@ -1,43 +1,42 @@
-#' Adding the structure base code for web application architecture  
-source("R/structure.root.R")
-
-#' Adding the modules customized (manually for the user)
-#' @description  the user should add the customized modules
-source('R/dashboard/dashboard.module.R')
-
-#' This class is the main web container of sub-modules 
-#' It has three main methods 
-#'   @method  ui: it create the main web interface with routes of 
+#' Application Root Container
+#' 
+#' This class is the main web container which contains of sub-modules, 
+#' it has four main methods [AppRoot$initialize()], [AppRoot$server()] 
+#' [AppRoot$ui()] and [AppRoot$addModule()].
+#' 
+#' \code{ui()}: it create the main web interface with routes of 
 #'        sub-modules injected.
-#'   @method server: it create the main server (container of servers)
+#'        
+#' \code{server()}: it create the main server (container of servers)
 #'       in order to responds all http request.
-#'   @method  addModule : add new modules to container main web.
-#'   
+#'       
+#' \code{addModule(module)}: add new modules to container main web, 
+#' param module is a class module that has server, siderbars and routes
+#' 
+#' @export
+#' 
 AppRoot <- R6Class("AppRoot", 
     public = list(
       initialize = function(title = "Default App"){
         private$title = title
       },
       
-      #'
-      #' @return the content web interface
       ui = function(){
         dashboardPage(
           dashboardHeader(title = private$title),
           dashboardSidebar(sidebarMenu(private$sidebars)),
-          dashboardBody(router_ui())
+          dashboardBody(shiny.router::router_ui())
         )
       },
       
-      #' For printing the logs into server
-      #'    cat(file=stderr(), "<message>")
-      #' 
-      #' Another option : Cleaner at context level
-      #'    wrapperServer <- lapply(private$servers, function(x) match.call(callModule, 
-      #'             call("callModule", x$get()$server(), x$get()$nsi)))
-      #'    lapply(wrapperServer, function(x) eval(x))
-      #'    
-      #'  @return the main container server
+      # For printing the logs into server
+      #    cat(file=stderr(), "<message>")
+      #
+      # Another option : Cleaner at context level
+      #    wrapperServer <- lapply(private$servers, function(x) match.call(callModule, 
+      #             call("callModule", x$get()$server(), x$get()$nsi)))
+      #    lapply(wrapperServer, function(x) eval(x))
+      #    
       server = function(){
         routerRoot <- make_router(
             private$routes
@@ -50,8 +49,6 @@ AppRoot <- R6Class("AppRoot",
         }
       },
       
-      #' One improve on the list routes/servers is the copy by reference!!! @salmuz
-      #' @param module a class module that has server, siderbars and routes
       addModule = function (module = AppModule$new()){
         private$sidebars[[length(private$sidebars) + 1]] <- module$sidebar()
         private$routes <- c(private$routes, module$routes())
@@ -66,10 +63,6 @@ AppRoot <- R6Class("AppRoot",
       servers = list()
     )
 )
-
-# add each module or sub-module at main application
-appRoot <- AppRoot$new("Capionis Demo")
-appRoot$addModule(dashboard)
 
 
 
