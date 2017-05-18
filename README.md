@@ -12,16 +12,17 @@ It's neccesary to install the following libraries:
   * **shinydashboard** 
     * Web site: https://github.com/rstudio/shinydashboard
     * Command: ``` install.packages("shinydashboard") ```
+  * **devtools**
+    * Command: ``` install.packages("devtools") ```
   * **shiny.router** 
     * Web site: https://github.com/Appsilon/shiny.router
     * Command: ``` devtools::install_github("Appsilon/shiny.router") ```
-    * Also install the following libraries: 
-      * ``` install.packages("magrittr", version='1.5') ```
-      * ``` install.packages("shinyjs", version='0.8') ```
   * **heemod** 
     * Web site: https://github.com/pierucci/heemod
     * Version used for this version 
       * ``` devtools::install_github("salmuz/heemod@capionis_features") ```
+  * **WeMEco**
+    * Command: ``` devtools::install_github("salmuz/WeMEco") ```
 
 ### Demo
 
@@ -29,7 +30,7 @@ In order to execute a version demo of web application, we are execute the follow
 
 ```R
 library(shiny)
-runGitHub(repo = "WeMEco", username = "salmuz", subdir = "inst/shinyapp")
+runGitHub(repo = "WeMEco", username = "salmuz", subdir = "inst/shinyapp/capionis")
 ```
 
 ### Features

@@ -1,4 +1,5 @@
 library(shinydashboard)
+library(R6)
 library(shiny)
 library(shinyAce)
 library(heemod)
@@ -16,6 +17,3 @@ source('setting/setting.module.R')
 appRoot <- AppRoot$new("Capionis ME")
 appRoot$addModule(dashboard)
 appRoot$addModule(setting)
-
-# Load data
-# load("../../extdata/2state_mod.RData", envir = .GlobalEnv)
