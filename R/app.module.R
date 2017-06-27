@@ -63,8 +63,8 @@ SimpleModule = R6Class(
   inherit = AppModule,
   public = list(
     initialize = function(route = "/", title = "Default Simple Module", 
-                          icon = "desktop", nameItem = "Default Module"){
-      private$routes[[route]] <- private$viewFactory$createContent(title = title)
+                          icon = "desktop", nameItem = "Default Module", content= tagList()){
+      private$routes[[route]] <- private$viewFactory$createContent(title = title, content = content)
       private$.icon = icon
       private$.nameItem = nameItem
     },

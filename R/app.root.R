@@ -38,14 +38,16 @@ AppRoot <- R6Class("AppRoot",
       #    lapply(wrapperServer, function(x) eval(x))
       #    
       server = function(){
-        routerRoot <- make_router(
-            private$routes
-        )
+        if(length(private$routes) > 0)
+          routerRoot <- make_router(private$routes)
+        else
+          routerRoot <- make_router(list('/' = ViewFactory$new()$createContent('AppRoot')))
         
         function(input, output, session) {
           routerRoot(input, output)
-          lapply(private$servers, function(x) 
-            do.call("callModule", list(x$get()$server, x$get()$nsi, session=session)))
+          if(length(private$servers))
+            lapply(private$servers, function(x) 
+              do.call("callModule", list(x$get()$server, x$get()$nsi, session=session)))
         }
       },
       

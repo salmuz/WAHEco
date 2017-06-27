@@ -12,7 +12,7 @@ mat_new <- define_transition(
 
 state_life <- define_state(
   cost_total = 0,
-  qaly = discount(1, r_discount, by_period = 12)
+  qaly = discount(1, r_discount, period = 12)
 )
 
 state_death <- define_state(

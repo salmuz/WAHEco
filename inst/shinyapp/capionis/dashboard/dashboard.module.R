@@ -13,8 +13,13 @@ DashboardModule = R6Class(
   inherit = WeMeco::SimpleModule,
   public = list(
     initialize = function(){
-      super$initialize("/", "Capionis Web Application", 
-                       icon = "dashboard", nameItem = "Dashboard")
+      super$initialize("/", "Evaluation Coût-Efficacité", 
+            content =  tagList( 
+              tags$hr(),
+              tags$h2("Drug-eluting stents V.S. Bare-metal stents"),
+              tags$div(style = 'text-align:center', tags$img(src="images/stents_cas.png"))
+              ),
+            icon = "dashboard", nameItem = "Dashboard")
     }
   )
 )

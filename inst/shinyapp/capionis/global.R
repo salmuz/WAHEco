@@ -14,6 +14,7 @@ source('setting/setting.module.R')
 
 
 # Add each module to main application web Capionis 
-appRoot <- AppRoot$new("Capionis ME")
+appRoot <- AppRoot$new(title = tags$a(href ='/', tags$img(src='images/capionis.png')))
 appRoot$addModule(dashboard)
 appRoot$addModule(setting)
+

@@ -67,7 +67,7 @@ EvolutionCohortComponent <- R6Class(
         
         output$plt.evolution <- renderPlot({
           params <- options()
-          default <- list(x = fitting, type = "count")
+          default <- list(x = fitting, type = "count", free_y=T)
           if(!is.null(params)){
             res <- do.call("plot", append(default, params))
             print(res)
