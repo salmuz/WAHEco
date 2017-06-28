@@ -1,10 +1,10 @@
-# Web Application for Medico-Economics Decision Making (WeMEco)
+# Web Application for Health Economics Decision Making (WeMEco)
 
-You can use this library to model study case in medico-economics decision making or you can use the internal architecture web application for another customized web application. 
+You can use this library to model study case in health economics decision making or you can use the internal architecture web application for another customized web application. 
 
 ### Description 
 
-This package has a general custom architecture web application using **shiny, shinydashboard, shiny.route and heemod** libraries, it has some web modules for medico-economics decision making and anyone can create news customized modules or component for later they are added to the web application container **AppRoot**.
+This package has a general custom architecture web application using **shiny, shinydashboard, shiny.route and heemod** libraries, it has some web modules for health economics decision making and anyone can create news customized modules or component for later they are added to the web application container **AppRoot**.
 
 ### Dependencies
 It's neccesary to install the following libraries to execute the demo version
