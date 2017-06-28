@@ -1,4 +1,4 @@
-library(WeMeco)
+library(WAHEco)
 appRoot <- AppRoot$new(title = "App. Testing")
 simpleModule <- SimpleModule$new(title = "Première module")
 SimpleComponent <- R6Class(

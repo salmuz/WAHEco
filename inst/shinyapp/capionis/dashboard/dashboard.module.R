@@ -10,7 +10,7 @@ source("dashboard/plot.dsa-model.R")
 #' 
 DashboardModule = R6Class(
   classname = "DashboardModule", 
-  inherit = WeMeco::SimpleModule,
+  inherit = WAHEco::SimpleModule,
   public = list(
     initialize = function(){
       super$initialize("/", "Evaluation Coût-Efficacité", 

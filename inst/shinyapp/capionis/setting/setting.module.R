@@ -8,7 +8,7 @@ source("setting/set.database-me.R")
 #' 
 SettingModule = R6Class(
   classname = "SettingModule", 
-  inherit = WeMeco::SimpleModule,
+  inherit = WAHEco::SimpleModule,
   public = list(
     initialize = function(){
       super$initialize("/setting", "Setting parameters", 

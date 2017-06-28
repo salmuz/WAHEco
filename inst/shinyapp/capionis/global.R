@@ -3,10 +3,10 @@ library(R6)
 library(shiny)
 library(shinyAce)
 library(heemod)
-library(WeMeco)
+library(WAHEco)
 
 # loading default data test 
-load(system.file("extdata", "mortalityData.RData", package="WeMeco"))
+load(system.file("extdata", "mortalityData.RData", package="WAHEco"))
 
 source('utils.R')
 source('dashboard/dashboard.module.R')

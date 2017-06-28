@@ -10,9 +10,9 @@ ModelMeComponent <- R6Class(
     initialize = function(title = "Setting a multistate model Medical-Economic", 
                           path = "/set-model-me", nsid = "set-modelme"){
       super$initialize(title, path, nsid)
-      private$src.model <- WeMeco::read.scriptR("setting/default-model.R")
-      private$src.dsa <- WeMeco::read.scriptR("setting/default-dsa.R")
-      private$src.psa <- WeMeco::read.scriptR("setting/default-psa.R")
+      private$src.model <- WAHEco::read.scriptR("setting/default-model.R")
+      private$src.dsa <- WAHEco::read.scriptR("setting/default-dsa.R")
+      private$src.psa <- WAHEco::read.scriptR("setting/default-psa.R")
     },
     view = function(){
       tagList(

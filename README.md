@@ -1,4 +1,4 @@
-# Web Application for Health Economics Decision Making (WeMEco)
+# Web Application for Health Economics Decision Making (WAHEco)
 
 You can use this library to model study case in health economics decision making or you can use the internal architecture web application for another customized web application. 
 
@@ -25,8 +25,8 @@ It's neccesary to install the following libraries to execute the demo version
     * Web site: https://github.com/pierucci/heemod
     * Version used for this version 
       * ``` devtools::install_github("salmuz/heemod@capionis_features") ```
-  * **WeMEco**
-    * Command: ``` devtools::install_github("salmuz/WeMEco") ```
+  * **WAHEco**
+    * Command: ``` devtools::install_github("salmuz/WAHEco") ```
 
 ### Demo
 
@@ -34,7 +34,7 @@ In order to execute a version demo of web application, we are execute the follow
 
 ```R
 library(shiny)
-runGitHub(repo = "WeMEco", username = "salmuz", subdir = "inst/shinyapp/capionis")
+runGitHub(repo = "WAHEco", username = "salmuz", subdir = "inst/shinyapp/capionis")
 ```
 
 ### Features
