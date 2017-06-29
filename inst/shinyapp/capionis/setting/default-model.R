@@ -53,7 +53,7 @@ par_mod <- modify(
 
 par_mod <- modify(
   par_mod,
-  risk_relative = 0.85,
+  risk_relative = .7,
   p_death_new = p_death_reference * risk_relative
 )
 
@@ -65,14 +65,14 @@ par_mod <- modify(
 
 fitting <- run_model(
   parameters = par_mod,
-
+  
   base = strat_base,
   new = strat_new,
-
+  
   cycles = 10,
   cost = cost_total,
   effect = qaly,
-
+  
   method = "life-table",
   init = c(
     life = 1000,

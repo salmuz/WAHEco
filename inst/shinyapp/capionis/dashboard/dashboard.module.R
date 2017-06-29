@@ -25,13 +25,11 @@ DashboardModule = R6Class(
 )
 
 # Components for module Dashboard
-pl.graph <- GraphComponent$new()
 pl.evolution <- EvolutionCohortComponent$new()
 pl.psa <- PSAComponent$new()
 pl.dsa <- DSAComponent$new()
 
 dashboard <- DashboardModule$new()
-dashboard$addComponent(pl.graph)
 dashboard$addComponent(pl.evolution)
 dashboard$addComponent(pl.psa)
 dashboard$addComponent(pl.dsa)

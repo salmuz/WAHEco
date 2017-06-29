@@ -7,6 +7,7 @@ library(WAHEco)
 
 # loading default data test 
 load(system.file("extdata", "mortalityData.RData", package="WAHEco"))
+load(system.file("extdata", "stents.RData", package="WAHEco"))
 
 source('utils.R')
 source('dashboard/dashboard.module.R')
