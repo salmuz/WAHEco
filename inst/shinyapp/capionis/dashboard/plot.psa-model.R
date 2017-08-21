@@ -39,20 +39,22 @@ PSAComponent <- R6Class(
     server = function () {
       function(input, output, session, ...) {
         output$plt.ce <- renderPlot({
-          plot(fitting.psa, type="ce")
+          plot.psa.ce(fitting.psa, fitting) + 
+            ggplot2::xlim(0,1) + 
+            ggplot2::theme(legend.position="top")
         })
         output$plt.conv <- renderPlot({
-          plot(fitting.psa, type="conv")
+          plot.psa.conv(fitting.psa)
         })
         output$plt.ac <- renderPlot({
-          plot.ac <- plot(fitting.psa, strategy = fitting.psa$model$root_strategy, type='ac') + 
+          plot.psa.ac(fitting.psa) +
             ggplot2::ylim(.5, 1) +
-            ggplot2::theme(legend.title = ggplot2::element_blank(), 
+            ggplot2::theme(legend.title = ggplot2::element_blank(),
                            legend.text = ggplot2::element_blank())
-          plot(plot.ac, type="ac", max_wtp = 30000, log_scale = F)
         })
         output$plt.evpi <- renderPlot({
-          plot(fitting.psa, type="evpi", max_wtp = 30000, log_scale = F)
+          if(exists("plot.stents.evpi")) plot.stents.evpi
+          else plot(fitting.psa, type="evpi", max_wtp = 30000, log_scale = F)
         })
         # output$plt.cov <- renderPlot({
         #   plot(fitting.psa, type="cov")
